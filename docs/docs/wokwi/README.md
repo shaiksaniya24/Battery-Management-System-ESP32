@@ -1,7 +1,7 @@
 # Wokwi Simulation
 
 This folder contains the Wokwi simulation resources for the ESP32 EV
-Battery Management System.
+Battery Management System. 
 
 The simulations are used to verify the functionality of the embedded
 software before physical hardware implementation.
