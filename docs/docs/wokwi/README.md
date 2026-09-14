@@ -42,6 +42,6 @@ added here.
 | Task 1 | Modular BMS | https://wokwi.com/projects/472899357310916609 |
 | Task 2 | Safety Relay | https://wokwi.com/projects/473214613203299329 |
 | Task 3 | LCD Engine | https://wokwi.com/projects/473228477102328833 |
-| Task 4 | Fault State Machine | To be added |
+| Task 4 | Fault State Machine | https://wokwi.com/projects/473235727870439425 |
 | Task 5 | Blynk Telemetry | To be added |
 | Task 6 | Blynk Analytics | To be added |
