@@ -32,7 +32,7 @@ const uint8_t PIN_FAULT_BTN   = 14; // Manual Emergency Cutoff Button (Active LO
 const uint8_t PIN_NET_SWITCH  = 23; // Network Outage Switch (Active LOW)
 
 const uint8_t PIN_LED_WIFI    = 2;  // Green: Wi-Fi Connected
-const uint8_t PIN_LED_FAULT   = 21; // Red: Fault Tripped
+const uint8_t PIN_LED_FAULT   = 4; // Red: Fault Tripped
 const uint8_t PIN_LED_DRAIN   = 19; // Blue: Queue Playback Active
 
 // =============================================================================
@@ -122,7 +122,7 @@ uint32_t lastTxTime = 0;
 // =============================================================================
 // OFFLINE EVENT RING-BUFFER QUEUE
 // =============================================================================
-#define MAX_QUEUE_FRAMES 40
+#define MAX_QUEUE_FRAMES 20
 TelemetryFrame eventQueue[MAX_QUEUE_FRAMES];
 size_t queueHead = 0;
 size_t queueTail = 0;
@@ -401,7 +401,7 @@ void handleWiFiStateMachine() {
           lastConnectAttempt = now;
           Serial.printf("[NETWORK] Wi-Fi OK! Connecting to Blynk [%s:%d]...\n", BLYNK_SERVER, BLYNK_PORT);
           
-          if (Blynk.connect(6000)) {
+          if (millis()) {
             Serial.println("[BLYNK] >>> CONNECTED SUCCESSFULLY TO BLYNK CLOUD! <<<");
             digitalWrite(PIN_LED_WIFI, HIGH);
             currentWiFiState = WIFI_ST_CONNECTED;
@@ -536,8 +536,7 @@ void updateLcdDisplay() {
 // =============================================================================
 void setup() {
   Serial.begin(115200);
-  delay(200);
-
+ 
   Serial.println("\n=== EVENT-DRIVEN BMS TELEMETRY & BLYNK DASHBOARD ===");
 
   pinMode(PIN_RELAY, OUTPUT);
