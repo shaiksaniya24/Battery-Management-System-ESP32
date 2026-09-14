@@ -122,7 +122,7 @@ uint32_t lastTxTime = 0;
 // =============================================================================
 // OFFLINE EVENT RING-BUFFER QUEUE
 // =============================================================================
-#define MAX_QUEUE_FRAMES 20
+#define MAX_QUEUE_FRAMES 40
 TelemetryFrame eventQueue[MAX_QUEUE_FRAMES];
 size_t queueHead = 0;
 size_t queueTail = 0;
@@ -401,7 +401,7 @@ void handleWiFiStateMachine() {
           lastConnectAttempt = now;
           Serial.printf("[NETWORK] Wi-Fi OK! Connecting to Blynk [%s:%d]...\n", BLYNK_SERVER, BLYNK_PORT);
           
-          if (millis()) {
+          if (Blynk.connect(6000)) {
             Serial.println("[BLYNK] >>> CONNECTED SUCCESSFULLY TO BLYNK CLOUD! <<<");
             digitalWrite(PIN_LED_WIFI, HIGH);
             currentWiFiState = WIFI_ST_CONNECTED;
@@ -536,6 +536,7 @@ void updateLcdDisplay() {
 // =============================================================================
 void setup() {
   Serial.begin(115200);
+  delay(200);
  
   Serial.println("\n=== EVENT-DRIVEN BMS TELEMETRY & BLYNK DASHBOARD ===");
 
