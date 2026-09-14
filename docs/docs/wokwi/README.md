@@ -39,7 +39,7 @@ added here.
 
 | Task | Simulation | Link |
 |---|---|---|
-| Task 1 | Modular BMS | To be added |
+| Task 1 | Modular BMS | https://wokwi.com/projects/472899357310916609 |
 | Task 2 | Safety Relay | To be added |
 | Task 3 | LCD Engine | To be added |
 | Task 4 | Fault State Machine | To be added |
